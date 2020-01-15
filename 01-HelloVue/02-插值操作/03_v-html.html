@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-html</title>
+</head>
+<body>
+<!--在某些时候我们不希望直接输出`<a href='http://www.baidu.com'>百度一下</a>`这样的字符串，
+而输出被html自己转化的超链接。此时可以使用v-html。
+-->
+<div id="app">
+  <h2>{{message}}</h2>
+  <h2 v-html="getURL"></h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws fighting!!!',
+      getURL:'<a href="http://www.baidu.com">百度一下</a>',
+    }
+  })
+</script>
+
+</body>
+</html>

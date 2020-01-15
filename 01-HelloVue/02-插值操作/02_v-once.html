@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-once语法</title>
+</head>
+<!--表示该数据只渲染一次，数据改变之后不会再次渲染-->
+<!--控制台修改数据后 app.message='hws',上面的一行文字变成hws,下面一行文字还是不变（hws fighting!!!）-->
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <h2 v-once>{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws fighting!!!'
+    }
+  })
+</script>
+
+</body>
+</html>

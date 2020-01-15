@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-pre使用</title>
+</head>
+<!--有时候我们希望输出{{message}}这样的形式，而不喜欢输出{{message}}转换后变量的形式,
+这个时候就要使用v-pre-->
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <h2 v-pre>{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws fighting!!!'
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-bind的基本使用</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+<!--  <img v-bind:src="imgURL" alt="">-->
+  <!--语法糖的写法-->
+  <img :src="imgURL" alt="">
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws fighting!!!',
+      imgURL:'https://dss1.baidu.com/6ONXsjip0QIZ8tyhnq/it/u=207093457,2532153457&fm=179&app=42&f=JPG?w=121&h=140'
+    }
+  })
+</script>
+</body>
+</html>
