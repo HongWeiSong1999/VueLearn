@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-on的修饰符</title>
+</head>
+<body>
+<div id="app">
+  <div @click="divClick">
+    aaaaa
+  <!--1、在@click后面添加.stop，形成一个修饰符，点击按钮后，其余的事件不会响应-->
+    <button @click.stop="btnClick">按钮被点击了</button>
+  </div>
+
+  <!--2、prevent修饰符的使用-->
+  <form action="baidu">
+    <input type="submit" value="提交" @click.prevent="submitClick">
+  </form>
+
+  <!--3、监听某个键盘的键,如果加上一个.enter按键的话，就会监听enter的键-->
+  <input type="text" @keyup.enter="keyUp">
+
+  <!--4、.once的操作，按钮只能被点击一次-->
+  <button @click.once="btn2Click">按钮2</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'洪炜松要努力！'
+    },
+    methods:{
+      btnClick(){
+        console.log('btnClick');
+      },
+      divClick(){
+        console.log('divClick');
+      },
+      keyUp(){
+        console.log('keyUp');
+      },
+      submitClick(){
+        console.log('submitClick');
+      },
+      keyUp(){
+        console.log('keyUp');
+      },
+      btn2Click(){
+        console.log('btn2Click');
+      }
+    }
+  })
+</script>
+</body>
+</html>

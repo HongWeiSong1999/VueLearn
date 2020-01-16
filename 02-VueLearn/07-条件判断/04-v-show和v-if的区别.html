@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-for和v-if的区别</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+<!--v-if的话，如果是false的话，是不会存在dom里面的，如果删除一次的话，最好使用这个-->
+  <div v-if="isShow">{{message}}</div>
+  <!-- v-show的话，如果为false，只是把它里面的行内样子进行变更：display:none,重复多次的话，用这个 -->
+  <div v-show="isShow">{{message}}</div>
+  <button @click="getShow">点击切换</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'洪炜松要努力！',
+      isShow:true
+    },
+    methods:{
+      getShow(){
+        this.isShow = !this.isShow;
+      }
+    }
+  })
+</script>
+</body>
+</html>

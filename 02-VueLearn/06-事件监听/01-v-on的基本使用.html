@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>V-ON的基本使用</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+<!--  1、v-bind的语法糖是:
+  2、v-on的语法糖是@-->
+  <button @click="Increment">+</button>
+  <button @click="Decrement">-</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:0,
+    },
+    /*字面增强语法，直接写*/
+    methods:{
+      Increment(){
+        this.message++
+      },
+      Decrement(){
+        this.message--
+      }
+    }
+  })
+</script>
+</body>
+</html>

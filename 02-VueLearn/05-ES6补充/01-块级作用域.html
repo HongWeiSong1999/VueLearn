@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>块级作用域</title>
+</head>
+<body>
+<script>
+  /*
+  1、变量作用域，变量在什么范围内是可用的
+  {
+    var name = 'hws';
+    console.log(name);
+  }
+  console.log(name);*/
+  /*2、没有变量作用域引起的问题*,if的块级作用域
+  var func;
+  if (true){
+    var name = 'hws';
+    func = function () {
+      console.log(name);
+    }
+    func();
+  }
+  var name = 'Hongws'
+  console.log("第二个"+name);
+  */
+  //总结：es6里面是有块级作用域的，es5里面没有块级作用域的
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-on的参数问题</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+<!--  1、事件调用的方法没有参数-->
+  <button @click="btn1Click">按钮1</button>
+  <button @click="btn1Click()">按钮1</button>
+
+  <!--2、在事件定义时，方法本身是需要有参数的-->
+  <button @click="btn2Click(123456)">按钮2</button>
+  <button @click="btn2Click()">按钮2</button>
+
+  <!--3、方法定义时，既需要event对象，又需要其它的参数-->
+  <!--这里不能直接写uuu，默认是去data那里找对应的变量-->
+  <!--在调用时，如何获取到浏览器里面的event，就直接使用$event就好了，带一个 $-->
+  <button @click="btn3Click(abc,$event)">按钮3</button>
+  <button>按钮4</button>
+  <button>按钮5</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'洪炜松要努力！',
+      event:'按钮3的event',
+      abc:123
+    },
+    methods:{
+      btn1Click(){
+        console.log('btn1被点击了');
+      },
+      btn2Click(event){
+        console.log(event,'btn2被点击了');
+      },
+      btn3Click(abc,event){
+        console.log(abc, event);
+      }
+    }
+  })
+</script>
+</body>
+</html>

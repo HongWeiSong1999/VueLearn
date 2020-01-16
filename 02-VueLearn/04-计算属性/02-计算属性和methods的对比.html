@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>计算属性和methods的对比</title>
+</head>
+<body>
+<div id="app">
+  <!--1、直接通过mustache语法来求,一般不使用，模板过于繁琐-->
+  <h2>{{firstName+lastName}}</h2>
+  <!--2、使用计算属性来求-->
+  <h2>{{fullName}}</h2>
+  <h2>{{fullName}}</h2>
+  <h2>{{fullName}}</h2>
+  <h2>{{fullName}}</h2>
+  <!--3、使用methods属性来求-->
+  <h2>{{getFullName()}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '洪炜松要努力！',
+      firstName: 'hong',
+      lastName: 'weisong',
+    },
+    computed: {
+      fullName: function () {
+        console.log('fullName执行了');
+        return this.firstName + this.lastName;
+      }
+    },
+    methods: {
+      getFullName: function () {
+        console.log('getFullName执行了');
+        return this.firstName + this.lastName;
+      }
+    }
+  },)
+</script>
+
+</body>
+</html>

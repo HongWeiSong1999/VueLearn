@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>书籍价格汇总测试</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{totalPrice}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws fighting!!!',
+      movies:[
+        {id:1,name:'倚天屠龙记',price:123},
+        {id:2,name:'倚天屠龙记1',price:132},
+        {id:3,name:'倚天屠龙记2',price:223},
+        {id:4,name:'倚天屠龙记3',price:133},
+      ],
+      result1:0
+    },
+    computed:{
+      totalPrice:function () {
+        let result = 0;
+        for (let i = 0;i < this.movies.length;i++){
+          result += this.movies[i].price;
+        }
+        return result;
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>用户登录小案例</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+
+  <span v-if="isUser">
+    <label for="Account">用户账户</label>
+    <input type="text" id="Account" placeholder="输入用户账户" key="Account">
+  </span>
+  <!--通过设置key可以取消掉文本框中文字复用的情况-->
+  <span v-else>
+    <label>用户邮箱</label>
+    <label for="email"></label>
+    <input type="text" id="email" placeholder="输入用户邮箱" key="email">
+  </span>
+  <button @click="btnClick">点击切换登录</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'洪炜松要努力！',
+      isUser:true
+    },
+    methods:{
+      btnClick(){
+        this.isUser = !this.isUser;
+      }
+    }
+  })
+</script>
+</body>
+</html>

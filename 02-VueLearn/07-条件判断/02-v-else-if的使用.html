@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-else-if的使用</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+
+  <h2 v-if="score>=90">优秀</h2>
+  <!--这里不需要写score<90 && score>=80,因为score是大于90不满足才执行下面的语句的-->
+  <h2 v-else-if="score>=80">良好</h2>
+  <h2 v-else-if="score>=70">中等</h2>
+  <h2 v-else-if="score>=60">及格</h2>
+  <h2 v-else>不及格</h2>
+
+
+  <!--这里使用计算属性的形式来展示-->
+  <h2>{{finalResult}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: '洪炜松要努力！',
+      score: 98
+    },
+    computed:{
+      finalResult(){
+        console.log('finalResult执行了');
+        let result = '';
+        if(this.score>=90){
+          result = '优秀'
+        }else if (this.score >=80){
+          result = '良好'
+        } else if (this.score >=70){
+          result = '中等'
+        } else if (this.score >=60){
+          result = '及格'
+      }else {
+          result = '不及格'
+        }
+        return result;
+      }
+    }
+  })
+</script>
+</body>
+</html>
