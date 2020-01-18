@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-for测试</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <ul>
+    <li v-for="(items,index) in movies">{{index+1}}、{{items}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws要努力！',
+      movies:['qwe','asd','zxc','rty','dgf','cvb']
+    }
+  })
+</script>
+</body>
+</html>

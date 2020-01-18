@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-for遍历对象</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <h2>================================</h2>
+
+  <!--1、遍历对象的过程中，如果只是获取一个值，那么获得到的是value-->
+  <h2 v-for="(items in info">{{items}}</h2>
+  <h2>================================</h2>
+
+  <!--2、遍历对象的过程中，如果获取2个值，格式：(value,key)-->
+  <h2 v-for="(value,key) in info">{{value}}--{{key}}</h2>
+  <h2>================================</h2>
+
+  <!--3、遍历对象的过程中，如果是获取多个值的，格式(value,key,index)-->
+  <h2 v-for="(value,key,index) in info">{{value}}--{{key}}--{{index+1}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws fighting!!!',
+      info:{
+        name:'hws',
+        age:'20',
+        height:182
+      }
+    }
+  })
+</script>
+</body>
+</html>

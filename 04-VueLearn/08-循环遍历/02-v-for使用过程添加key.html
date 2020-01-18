@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-for使用过程添加key</title>
+</head>
+<body>
+
+<div id="app">
+  <h2>{{message}}</h2>
+  <h2>======================</h2>
+  <ul>
+    <li v-for="items in letters">{{items}}</li>
+  </ul>
+
+  <h2>======================</h2>
+  <!--
+      1、app.letters.splice(A,B)  A表示从第几个元素（位置）开始，B表示删除几个元素
+      2、app.letters.splice(A,0,'C')  A表示从第几个元素（位置）开始，'C'表示插入的元素
+
+      3、绑定key, :key="items",保证items是与后面显示出来的值相对应的~
+  -->
+  <ul>
+    <li v-for="items in letters" :key="items">{{items}}</li>
+  </ul>
+
+  <button @click="btnClick">点击</button>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws fighting!!!',
+      letters:['A','B','C','D','E','F']
+    },
+    methods:{
+      btnClick(){
+        /*//1、push可以发生响应式
+        this.letters.push('G');
+
+        //2、pop()也可以发生响应式,从数组的最后一个删除元素
+        this.letters.pop();
+
+        //3、shift(),从数组的第一个开始就删除元素
+        this.letters.shift();
+
+        //4、unshift(),在数组的最前面添加元素
+        this.letters.unshift('aaa','bbb')
+
+        //5、splice()   删除元素/插入元素/替换元素
+        //Ⅰ、删除；如果只有一个元素 splice(1),默认删除1后面所有的元素
+        //    splice(1,2) ，从第一个位置开始，删除2个元素
+        //Ⅱ、替换；中间的值是替换的个数，第三个值是替换的具体值
+        //this.letters.splice(1,2,'hong','weisong')
+        //Ⅲ、增加；splice(1,0,'qwe') ，表示从第一个元素之后，增加一个qwe
+        this.letters.splice(1,0,'qwe');*/
+
+        //6、reverse()对数据进行反转的操作
+        //this.letters.reverse()
+
+        //7、sort()对数据进行排序的操作
+        //this.letters.sort()
+
+        //8、通过索引值改变界面中的值不是响应式的
+        // this.letters[0] = 'bbbb'
+
+        //9、需求：将第一个值a 变成bbb
+        //方法一  ：this.letters.splice(0,1,'bbb')
+        //方法二：通过Vue来实现 Vue.set(要修改的对象,索引值,'修改的元素')
+        Vue.set(this.letters,0,'bbbb');
+      }
+    }
+  })
+  /*
+  1、加上...num可以传递多个参数
+  function sum(...num) {
+    console.log(num);
+  }
+  sum(1,2,3,4,5)*/
+</script>
+</body>
+</html>

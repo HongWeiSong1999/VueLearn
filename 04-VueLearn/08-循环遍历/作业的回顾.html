@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>作业的回顾</title>
+  <style>
+    .active{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <h2>==========================</h2>
+
+  <ul>
+    <li v-for="(items,index) in movies"
+        :class="{active:(currentIndex === index)}">
+      {{items}}
+    </li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws fighting!!!',
+      movies:['天龙八部','笑傲江湖','倚天屠龙记','人民的名义'],
+      currentIndex:0
+    },
+  })
+</script>
+</body>
+</html>

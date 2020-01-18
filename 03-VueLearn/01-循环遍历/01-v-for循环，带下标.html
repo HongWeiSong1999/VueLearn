@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-for循环，带下标</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+
+  <!--1、在遍历的时候，没有使用索引值-->
+  <div>
+    <ul>
+      <li v-for="items in movies">{{items}}</li>
+    </ul>
+  </div>
+  <!--2、在遍历的时候，使用索引值-->
+  <div>
+    <ul>
+      <li v-for="(items , index) in movies">
+        {{index+1}}.{{items}}
+      </li>
+    </ul>
+  </div>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws要努力！',
+      movies:['龙门客栈','倚天屠龙记','笑傲江湖','天龙八部']
+    }
+  })
+</script>
+
+</body>
+</html>
