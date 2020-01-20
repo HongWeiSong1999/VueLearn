@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>图书购物车小案例</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<!--
+1、表格合并 colspan和rowspan
+colspan是跨列合并
+rowspan和跨行合并
+2、thead 和 tbody 和 tfoot 三个分别加在表格里
+3、thead里面先<tr> 后<th> :用于标记表格头
+4、tbody 和 tfoot 先<tr> 后<td>:普通表格标记
+-->
+<body>
+  <div id="app">
+    <table>
+      <thead>
+      <th>&nbsp;</th>
+      <th>书籍名称</th>
+      <th>出版日期</th>
+      <th>价格</th>
+      <th>购买数量</th>
+      <th>操作</th>
+      </thead>
+
+      <tbody>
+       <!-- <tr v-for="items in books">
+          <td v-for="values in items">{{values}}</td>
+        </tr>-->
+       <tr v-for="(items,index) in books">
+         <!--方法一：使用两个for循环来遍历value
+         <td v-for="values in items">{{values}}</td>-->
+         <td>{{index+1}}</td>
+         <td>{{items.name}}</td>
+         <td>{{items.beginDate}}</td>
+         <!--里面传入的是items.price-->
+         <!--使用toFixed去保留2位小数-->
+         <!--<td>{{getFinalPrice(items.price)}}</td>-->
+         <!--使用过滤器来显示价格 中间加一个 （显示的价格名称）|（过滤器名称filters）-->
+         <td>{{items.price | showPrice}}</td>
+         <td>
+           <button @click="decrement(index)" v-bind:disabled="items.count <= 1">-</button>
+           {{items.count}}
+           <button @click="increment(index)">+</button>
+         </td>
+         <td><button @click="removeClick(index)">移除</button></td>
+      </tr>
+      </tbody>
+      <h2>总价格：{{}}</h2>
+    </table>
+  </div>
+<script src="../js/vue.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

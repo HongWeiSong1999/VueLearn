@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>购物车案例</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <th>书籍名称</th>
+        <th>出版日期</th>
+        <th>价格</th>
+        <th>购买数量</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(items,index) in books" :key="books">
+        <td>{{index+1}}</td>
+        <td>{{items.name}}</td>
+        <td>{{items.beginDate}}</td>
+       <!--
+        <td>{{items.price.toFixed(2)}}</td>
+        -->
+        <td>{{items.price | showPrice}}</td>
+        <td>
+          <button>-</button>
+          {{items.count}}
+          <button>+</button>
+        </td>
+        <td><button>移除</button></td>
+      </tr>
+      <!--
+       第二种方式显示
+      <tr v-for="(items,index) in books">
+        <td>{{index}}</td>
+        <td v-for="values in items">{{values}}</td>
+      </tr>-->
+    </tbody>
+  </table>
+</div>
+<script src="../../js/vue.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

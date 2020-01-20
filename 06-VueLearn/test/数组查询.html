@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>数组查询</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <button @click="getCalShuZu">点击</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws fighting!!!',
+      shuzu:[100,232,213,213,23,45,132,54,232,23,13,64]
+    },
+    methods:{
+      getCalShuZu(){
+        let numNew = [];
+        for (let n of this.shuzu){
+          if (n<100){
+            numNew.push(n);
+          }
+        }
+        console.log(numNew);
+        return numNew;
+      }
+    }
+  })
+</script>
+</body>
+</html>
