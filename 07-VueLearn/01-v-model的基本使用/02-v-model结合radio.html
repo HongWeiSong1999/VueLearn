@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-model结合radio使用</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <label for="male">
+    <input type="radio" id="male" value="男" v-model="sex">男
+  </label>
+  <label for="female">
+    <input type="radio" id="female" value="女" v-model="sex">女
+  </label>
+  <h2>{{sex}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws要努力！',
+      sex:'男'
+    }
+  })
+</script>
+</body>
+</html>

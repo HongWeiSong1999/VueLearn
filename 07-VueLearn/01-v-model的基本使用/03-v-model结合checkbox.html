@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-model结合checkbox</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+<!--1、checkbox的单选框-->
+  <label for="license">
+    <input type="checkbox" id="license" v-model="isAgree">同意协议
+    <h2>{{isAgree}}</h2>
+    <button :disabled="!isAgree">下一步</button>
+  </label>
+  <br>
+  <!--2、checkbox的多选框-->
+  <label>
+    <input type="checkbox" value="篮球" v-model="hobbies">篮球
+    <input type="checkbox" value="羽毛球" v-model="hobbies">羽毛球
+    <input type="checkbox" value="乒乓球" v-model="hobbies">乒乓球
+    <input type="checkbox" value="排球" v-model="hobbies">排球
+  </label>
+  <h2>你选择的是:{{hobbies}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'洪炜松要努力！',
+      isAgree:false,
+      hobbies:[]
+    }
+  })
+</script>
+</body>
+</html>

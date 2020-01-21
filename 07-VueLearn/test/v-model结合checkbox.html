@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>checkbox的使用</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <label for="license">
+    <input type="checkbox" id="license" value="同意协议" v-model="isAgree">同意协议
+
+  <h2>你选的是{{isAgree}}</h2>
+  <button :disabled="!isAgree">下一步</button>
+  </label>
+  <br>
+
+  <!--2、checkbox多选框的使用-->
+  <label>
+    <input type="checkbox" value="篮球" v-model="hobbits">篮球
+    <input type="checkbox" value="足球" v-model="hobbits">足球
+    <input type="checkbox" value="乒乓球" v-model="hobbits">乒乓球
+    <input type="checkbox" value="排球" v-model="hobbits">排球
+  </label>
+  <h2>你选择的是：{{hobbits}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws fighting!!!',
+      isAgree:false,
+      hobbits:[]
+    }
+  })
+</script>
+</body>
+</html>

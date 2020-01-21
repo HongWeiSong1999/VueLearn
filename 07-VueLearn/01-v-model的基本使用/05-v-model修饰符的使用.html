@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--1、修饰符：lazy，直接加在model后面，
+     若要触发，则通过让它 失去焦点或者按住回车就可以触发该响应-->
+  <input type="text" v-model.lazy="message">
+
+  <!--2、修饰符：number,使用输出的数字是number类型-->
+  <input type="number" v-model.number="age">
+  <h2>{{age}}{{typeof age}}</h2>
+
+  <!--3、修饰符：tirm，删除左右两边的空格-->
+  <input type="text" v-model.tirm="number">
+  <h2>{{number}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws fighting!!!',
+      age:'',
+      number:''
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>结合select</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+
+
+<select name="abc" v-model="fruit">
+  <option value="苹果0">苹果0</option>
+  <option value="苹果1">苹果1</option>
+  <option value="苹果2">苹果2</option>
+  <option value="苹果3">苹果3</option>
+  <option value="苹果4">苹果4</option>
+  <option value="苹果5">苹果5</option>
+</select>
+<h2>{{fruit}}</h2>
+
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'洪炜松要努力！',
+      fruit:'香蕉'
+    }
+  })
+</script>
+</body>
+</html>

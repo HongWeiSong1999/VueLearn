@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>组件化的基本使用</title>
+</head>
+<body>
+<div id="app">
+  <!--组建化的基本使用-->
+  <!--
+    1、创建组件构造器对象
+    2、注册组件
+    3、使用组件
+  -->
+  <h2>{{message}}</h2>
+  <my-cpn></my-cpn>
+  <my-cpn></my-cpn>
+  <my-cpn></my-cpn>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  /*1、创建组件(component)构造器对象*/
+  const cpnConstruct = Vue.extend({
+    template:`
+      <div>
+      <h2>我是标题</h2>
+      <p>啊啊啊啊</p>
+      <p>aaaaaaa</p>
+      </div>
+    `
+  });
+
+  /*2、注册组件*/
+  Vue.component('my-cpn',cpnConstruct);
+
+
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws要努力！'
+    }
+  })
+</script>
+</body>
+</html>

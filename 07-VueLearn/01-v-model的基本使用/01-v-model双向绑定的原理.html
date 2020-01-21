@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-model双向绑定的原理</title>
+</head>
+<body>
+<div id="app">
+  <input type="text" :value="message" v-on:input="valueInput">
+  <!--<input type="text" v-bind:value="message" v-on:input="message = $event.target.value">-->
+  <h2>{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el:'#app',
+    data:{
+      message:'hws fighting!!!'
+    },
+    methods:{
+      valueInput(){
+        console.log('-----');
+      }
+    }
+  })
+</script>
+</body>
+</html>

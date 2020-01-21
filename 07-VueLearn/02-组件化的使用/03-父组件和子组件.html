@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>{{message}}</h2>
+  <cpn2></cpn2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  /*子组件*/
+  const cpnC1 = Vue.extend({
+    template: `
+    <div>
+      <h2>我是标题一的子组件</h2>
+      <p>啊啊啊啊</p>
+      <p>oooooooo</p>
+    </div>
+    `
+  });
+
+  /*父组件*/
+  const cpnC2 = Vue.extend({
+    template: `
+    <div>
+      <h2>我是父组件标题二</h2>
+      <p>啊啊啊</p>
+      <p>oooooo</p>
+      <cpn1></cpn1>
+    </div>
+    `,
+    components: {
+      cpn1: cpnC1
+    }
+  });
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'hws要努力！'
+    },
+    components: {cpn2:cpnC2}
+  })
+</script>
+</body>
+</html>
